@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>530</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MoonLight Laboratory</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <item>
+             <widget class="QLabel" name="label">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Скорость каретки</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="speed_field"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_2">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>Расстояние</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="distance_field"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>D Волокна</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="vd_field"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="minimumSize">
+               <size>
+                <width>130</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="text">
+               <string>D Оболочки </string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QDoubleSpinBox" name="od_field"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <property name="spacing">
+           <number>-1</number>
+          </property>
+          <property name="sizeConstraint">
+           <enum>QLayout::SetMinimumSize</enum>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="load_btn">
+            <property name="minimumSize">
+             <size>
+              <width>36</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Загрузить</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="save_vtn">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Сохранить</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="table">
+        <attribute name="horizontalHeaderVisible">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>92</number>
+        </attribute>
+        <attribute name="horizontalHeaderHighlightSections">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderMinimumSectionSize">
+         <number>24</number>
+        </attribute>
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>30</number>
+        </attribute>
+        <attribute name="verticalHeaderMinimumSectionSize">
+         <number>30</number>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>ID</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Набор</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Время</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Прочность</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QPushButton" name="start_btn_2">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>90</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>КАЛИБРОВКА</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="start_btn">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>90</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>ЗАПУСК</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
