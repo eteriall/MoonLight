@@ -10,12 +10,6 @@ if __name__ == "__main__":
 
     log('Все модули загружены успешно!')
 
-    main_window = MainWindow(None)
+    main_window = MainWindow(Arduino(3))
     main_window.show()
     app.exec()
-
-    for i in range(1, 15 + 1):
-        log(f'Поиск установки, порт COM{i}..', cls=True)
-        time.sleep(.5)
-    else:
-        log('Ошибка подключения к установке. ', t='err')

@@ -1,6 +1,8 @@
 import json
+import os
+import time
 
-from PyQt5.QtWidgets import QWidget, QFileDialog
+from PyQt5.QtWidgets import QWidget, QFileDialog, QMessageBox
 
 from ._py.experiment import Ui_MainWindow as ExperimentWindowParent
 from ._py.main import Ui_MainWindow as MainWindowParent
@@ -10,6 +12,12 @@ from PyQt5 import QtWidgets, QtGui
 def warning():
     pass
 
+def write_read(ser, x):
+    ser.write(bytes(x, 'utf-8'))
+    time.sleep(0.05)
+    data = ser.readline()
+    print(data)
+    return data
 
 class ExperimentData:
     def __init__(self, configuration: dict):
@@ -47,12 +55,6 @@ class ExperimentWindow(QtWidgets.QMainWindow, ExperimentWindowParent):
             error_dialog = QtWidgets.QErrorMessage()
             error_dialog.showMessage('Oh no!')
 
-    def stop_experiment(self):
-        pass
-
-    def exit(self):
-        pass
-
 
 class MainWindow(QtWidgets.QMainWindow, MainWindowParent):
     def __init__(self, ard=None):
@@ -63,6 +65,8 @@ class MainWindow(QtWidgets.QMainWindow, MainWindowParent):
         # Управление конфигурациями оптоволокна
         self.load_btn.clicked.connect(self.load_of_config)
         self.save_btn.clicked.connect(self.save_of_config)
+        self.calibrate_btn.clicked.connect(self.calibrate)
+        self.start_btn.clicked.connect(self.start_experiment)
 
     def setObjectName(self, name):
         pass
@@ -102,12 +106,31 @@ class MainWindow(QtWidgets.QMainWindow, MainWindowParent):
 
     def update_experiments_table(self):
         """Reloads experiments data from json file"""
-        pass
+        files = os.listdir('/Experiments')
+        for i, f in enumerate(files):
+            f = json.load(open(f))
+            for j, el in enumerate(('speed', 'distance', 'fiber_d', 'protect_d')):
+                self.table.setItem(i, j, f[el])
 
+            self.table.setItem()
     def calibrate(self):
         """Calibrates arduino"""
+        try:
+            write_read(self.ard.ser, "1")
+        except Exception as e:
+            print(e, str(e.__traceback__))
         pass
 
     def start_experiment(self):
         """Opens experiment window with loaded configuration"""
+        try:
+            d = write_read(self.ard.ser, "2").decode()
+            self.msg = QMessageBox()
+            self.msg.setIcon(QMessageBox.Information)
+            self.msg.setText(d)
+            self.msg.setInformativeText(d)
+            self.msg.setWindowTitle("Result")
+            self.msg.exec_()
+        except Exception as e:
+            print(e, str(e.__traceback__))
         pass

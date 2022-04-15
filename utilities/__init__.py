@@ -37,4 +37,3 @@ print(f"""{colorama.Fore.BLUE}
 {colorama.Style.RESET_ALL}Команда "Лунный свет", 2022 год, НТО - Фотоника. Все права защищены.{colorama.Fore.BLUE}             "Y8bbdP"
 """)
 
-os.chdir(os.environ.get('PWD'))
